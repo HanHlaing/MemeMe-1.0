@@ -9,16 +9,12 @@ import UIKit
 
 class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate {
 
-    // MARK: Outlets
+    // MARK: -Outlets
     
     @IBOutlet weak var imagePickerView: UIImageView!
-    
-    @IBOutlet weak var pickAnImage: UIToolbar!
-    
+    @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var btnCamera: UIBarButtonItem!
-    
     @IBOutlet weak var textFieldTop: UITextField!
-    
     @IBOutlet weak var textFieldBottom: UITextField!
     
     // MARK: Variables/Constants
@@ -56,7 +52,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         unsubscribeFromKeyboardNotifications()
     }
     
-    //MARK: Private methods
+    // MARK: Actions
     
     @IBAction func pickAnImageFromAlbum(_ sender: Any) {
         pickAnImage(source: UIImagePickerController.SourceType.photoLibrary)
@@ -76,6 +72,8 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
             pickerController.allowsEditing = true
             present(pickerController, animated: true, completion: nil)
         }
+    
+    //MARK: Private methods
     
     func subscribeToKeyboardNotifications(){
         
