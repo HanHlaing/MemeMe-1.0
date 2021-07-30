@@ -7,6 +7,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="impact.ttf">
+            <string>Impact</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -17,10 +22,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HXu-jv-l4G">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="774"/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PqD-e0-zzC">
-                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <rect key="frame" x="0.0" y="818" width="414" height="44"/>
                                 <items>
                                     <barButtonItem title="Pick" id="b8x-9Q-WcU">
                                         <connections>
@@ -34,6 +39,16 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="shy-fq-m0n">
+                                <rect key="frame" x="193" y="104" width="28" height="18"/>
+                                <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EuD-vv-2FC">
+                                <rect key="frame" x="177" y="740" width="60" height="18"/>
+                                <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -42,15 +57,21 @@
                             <constraint firstItem="PqD-e0-zzC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="KVc-AJ-ajA"/>
                             <constraint firstItem="HXu-jv-l4G" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Kjz-Nq-7e8"/>
                             <constraint firstItem="PqD-e0-zzC" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Uga-9o-1oT"/>
+                            <constraint firstItem="PqD-e0-zzC" firstAttribute="top" secondItem="EuD-vv-2FC" secondAttribute="bottom" constant="60" id="XwB-FL-NzF"/>
                             <constraint firstItem="HXu-jv-l4G" firstAttribute="bottom" secondItem="PqD-e0-zzC" secondAttribute="top" id="aQM-Md-nIy"/>
+                            <constraint firstItem="shy-fq-m0n" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bDX-qB-whu"/>
+                            <constraint firstItem="EuD-vv-2FC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cGT-lm-tNy"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HXu-jv-l4G" secondAttribute="trailing" id="gjX-n6-mnw"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="PqD-e0-zzC" secondAttribute="bottom" id="pvo-Yq-mid"/>
+                            <constraint firstItem="shy-fq-m0n" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="zt3-Dp-hv7"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="btnCamera" destination="cPY-cU-D5t" id="QwT-qh-ByX"/>
                         <outlet property="imagePickerView" destination="HXu-jv-l4G" id="mu8-I3-Gjs"/>
                         <outlet property="pickAnImage" destination="PqD-e0-zzC" id="p8y-80-Vzx"/>
+                        <outlet property="textFieldBottom" destination="EuD-vv-2FC" id="Q6v-vM-TJ0"/>
+                        <outlet property="textFieldTop" destination="shy-fq-m0n" id="fDF-t5-qy0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
