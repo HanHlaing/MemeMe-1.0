@@ -128,6 +128,7 @@ class MemeEditorViewController: UIViewController {
         
         textField.delegate = self
         textField.textAlignment = .center
+        textField.text = text
         textField.defaultTextAttributes = memeTextAttributes
     }
     
