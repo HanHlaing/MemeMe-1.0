@@ -13,10 +13,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Meme Edithor View Controller-->
+        <!--Meme Editor View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MemeEdithorViewController" customModule="MemeMe_1_0" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MemeEditorViewController" customModule="MemeMe_1_0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -28,9 +28,9 @@
                                 <rect key="frame" x="0.0" y="813" width="414" height="49"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="PGU-Ja-2q5"/>
-                                    <barButtonItem image="camera.fill" catalog="system" id="cPY-cU-D5t">
+                                    <barButtonItem image="camera.fill" catalog="system" id="cPY-cU-D5t" userLabel="Camera Button">
                                         <connections>
-                                            <action selector="pickAnImageFromCamera:" destination="BYZ-38-t0r" id="nm5-nx-6It"/>
+                                            <action selector="pickAnImageFromCamera:" destination="BYZ-38-t0r" id="ABV-VJ-dN8"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="oVW-5d-Ilq"/>
@@ -56,12 +56,12 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <items>
                                     <navigationItem id="9Eo-yq-MC1">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" image="square.and.arrow.up" catalog="system" id="Dud-BT-cfv">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="square.and.arrow.up" catalog="system" id="Dud-BT-cfv" userLabel="Share Button">
                                             <connections>
                                                 <action selector="shareMeme:" destination="BYZ-38-t0r" id="Nd2-E7-9jp"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="Lo7-3E-Vya">
+                                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="Lo7-3E-Vya" userLabel="Cancel Button">
                                             <connections>
                                                 <action selector="cancelMeme:" destination="BYZ-38-t0r" id="JQH-z7-vvX"/>
                                             </connections>
@@ -90,7 +90,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="btnCamera" destination="cPY-cU-D5t" id="QwT-qh-ByX"/>
+                        <outlet property="btnCamera" destination="cPY-cU-D5t" id="Cod-tR-JHm"/>
                         <outlet property="btnCancel" destination="Lo7-3E-Vya" id="9y6-Wq-XHb"/>
                         <outlet property="btnShare" destination="Dud-BT-cfv" id="Vzx-UK-wfM"/>
                         <outlet property="imagePickerView" destination="HXu-jv-l4G" id="mu8-I3-Gjs"/>
