@@ -33,8 +33,7 @@ class MemeEditorViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         btnShare.isEnabled = false
-        setUpTextFieldsText()
-        setUpTextFieldsStyleAndDelegate()
+        setUpText()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -75,7 +74,7 @@ class MemeEditorViewController: UIViewController {
     @IBAction func cancelMeme(_ sender: Any) {
         imagePickerView.image = nil
         btnShare.isEnabled = false
-        setUpTextFieldsText()
+        setUpText()
     }
     
     @IBAction func changeFontStyle(_ sender: Any) {
@@ -95,7 +94,8 @@ class MemeEditorViewController: UIViewController {
                 let fontAction = UIAlertAction(title: font,
                                                style: .default) { _ in
                     self.fontName = font
-                    self.setUpTextFieldsStyleAndDelegate()
+                    self.setUpText()
+                    
                 }
                 
                 alertController.addAction(fontAction)
@@ -111,12 +111,13 @@ class MemeEditorViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
-    func setUpTextFieldsText() {
-        textFieldTop.text = "TOP"
-        textFieldBottom.text = "BOTTOM"
+    func setUpText() {
+    
+        setupTextField(textFieldTop, text: "TOP")
+        setupTextField(textFieldBottom, text: "BOTTOM")
     }
     
-    func setUpTextFieldsStyleAndDelegate() {
+    private func setupTextField(_ textField: UITextField, text: String) {
         
         let memeTextAttributes: [NSAttributedString.Key: Any] = [
             NSAttributedString.Key.strokeColor: UIColor.black,
@@ -125,12 +126,9 @@ class MemeEditorViewController: UIViewController {
             NSAttributedString.Key.strokeWidth:  -2.0
         ]
         
-        textFieldTop.delegate = self
-        textFieldBottom.delegate = self
-        textFieldTop.textAlignment = .center
-        textFieldBottom.textAlignment = .center
-        textFieldTop.defaultTextAttributes = memeTextAttributes
-        textFieldBottom.defaultTextAttributes = memeTextAttributes
+        textField.delegate = self
+        textField.textAlignment = .center
+        textField.defaultTextAttributes = memeTextAttributes
     }
     
     func hideToolbarAndNavigationBar(hidden: Bool) {
