@@ -13,10 +13,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Meme Edithor View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MemeMe_1_0" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MemeEdithorViewController" customModule="MemeMe_1_0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -50,14 +50,22 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EuD-vv-2FC">
                                 <rect key="frame" x="177" y="735" width="60" height="18"/>
                                 <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CHL-Vj-lMa">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <items>
                                     <navigationItem id="9Eo-yq-MC1">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" image="square.and.arrow.up" catalog="system" id="Dud-BT-cfv"/>
-                                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="Lo7-3E-Vya"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="square.and.arrow.up" catalog="system" id="Dud-BT-cfv">
+                                            <connections>
+                                                <action selector="shareMeme:" destination="BYZ-38-t0r" id="Nd2-E7-9jp"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="Lo7-3E-Vya">
+                                            <connections>
+                                                <action selector="cancelMeme:" destination="BYZ-38-t0r" id="JQH-z7-vvX"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -83,7 +91,10 @@
                     </view>
                     <connections>
                         <outlet property="btnCamera" destination="cPY-cU-D5t" id="QwT-qh-ByX"/>
+                        <outlet property="btnCancel" destination="Lo7-3E-Vya" id="9y6-Wq-XHb"/>
+                        <outlet property="btnShare" destination="Dud-BT-cfv" id="Vzx-UK-wfM"/>
                         <outlet property="imagePickerView" destination="HXu-jv-l4G" id="mu8-I3-Gjs"/>
+                        <outlet property="navigationBar" destination="CHL-Vj-lMa" id="f84-44-WNH"/>
                         <outlet property="textFieldBottom" destination="EuD-vv-2FC" id="Q6v-vM-TJ0"/>
                         <outlet property="textFieldTop" destination="shy-fq-m0n" id="fDF-t5-qy0"/>
                         <outlet property="toolbar" destination="PqD-e0-zzC" id="p8y-80-Vzx"/>
