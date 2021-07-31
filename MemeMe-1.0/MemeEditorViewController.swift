@@ -22,14 +22,9 @@ class MemeEditorViewController: UIViewController {
     
     // MARK: Variables/Constants
     
-    let memeTextAttributes: [NSAttributedString.Key: Any] = [
-        NSAttributedString.Key.strokeColor: UIColor.black,
-        NSAttributedString.Key.foregroundColor: UIColor.white,
-        NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSAttributedString.Key.strokeWidth:  -2.0
-    ]
-    
     private var imageMeme: UIImage?
+    private var fontName = "Impact"
+    
     
     // MARK: Lifecycle methods
     
@@ -83,7 +78,38 @@ class MemeEditorViewController: UIViewController {
         setUpTextFieldsText()
     }
     
+    @IBAction func changeFontStyle(_ sender: Any) {
+        showFontActionSheet()
+    }
+    
     //MARK: Private methods
+    
+    func showFontActionSheet() {
+        
+        let alertController = UIAlertController(title: "Choose Font Style",
+                                                message: "Please choose your desire font",
+                                                preferredStyle: .actionSheet)
+        
+        for family in UIFont.familyNames {
+            for font in UIFont.fontNames(forFamilyName: family) {
+                let fontAction = UIAlertAction(title: font,
+                                               style: .default) { _ in
+                    self.fontName = font
+                    self.setUpTextFieldsStyleAndDelegate()
+                }
+                
+                alertController.addAction(fontAction)
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel",
+                                     style: .cancel) { _ in
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
     
     func setUpTextFieldsText() {
         textFieldTop.text = "TOP"
@@ -91,6 +117,14 @@ class MemeEditorViewController: UIViewController {
     }
     
     func setUpTextFieldsStyleAndDelegate() {
+        
+        let memeTextAttributes: [NSAttributedString.Key: Any] = [
+            NSAttributedString.Key.strokeColor: UIColor.black,
+            NSAttributedString.Key.foregroundColor: UIColor.white,
+            NSAttributedString.Key.font: UIFont(name: fontName, size: 40) ?? UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+            NSAttributedString.Key.strokeWidth:  -2.0
+        ]
+        
         textFieldTop.delegate = self
         textFieldBottom.delegate = self
         textFieldTop.textAlignment = .center
