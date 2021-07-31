@@ -38,8 +38,6 @@ class MemeEdithorViewController: UIViewController,UIImagePickerControllerDelegat
         // Do any additional setup after loading the view.
         
         btnShare.isEnabled = false
-        btnCancel.isEnabled = imagePickerView.image != nil
-        
         setUpTextFieldsText()
         setUpTextFieldsStyleAndDelegate()
     }
@@ -82,7 +80,6 @@ class MemeEdithorViewController: UIViewController,UIImagePickerControllerDelegat
     @IBAction func cancelMeme(_ sender: Any) {
         imagePickerView.image = nil
         btnShare.isEnabled = false
-        btnCancel.isEnabled = false
         setUpTextFieldsText()
     }
     
@@ -171,7 +168,6 @@ class MemeEdithorViewController: UIViewController,UIImagePickerControllerDelegat
                     imagePickerView.contentMode = .scaleAspectFit
                 }
         btnShare.isEnabled = true
-        btnCancel.isEnabled = true
         dismiss(animated: true, completion: nil)
     }
     
