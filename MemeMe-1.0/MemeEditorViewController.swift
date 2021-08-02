@@ -108,7 +108,7 @@ class MemeEditorViewController: UIViewController {
         }
         
         alertController.addAction(cancelAction)
-        self.present(alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil)
     }
     
     func setUpText() {
@@ -127,9 +127,9 @@ class MemeEditorViewController: UIViewController {
         ]
         
         textField.delegate = self
-        textField.textAlignment = .center
         textField.text = text
         textField.defaultTextAttributes = memeTextAttributes
+        textField.textAlignment = .center
     }
     
     func hideToolbarAndNavigationBar(hidden: Bool) {

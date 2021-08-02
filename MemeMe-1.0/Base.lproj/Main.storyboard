@@ -43,12 +43,18 @@
                                 </items>
                             </toolbar>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="shy-fq-m0n">
-                                <rect key="frame" x="193" y="128" width="28" height="18"/>
+                                <rect key="frame" x="20" y="128" width="374" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="Gnv-jo-jEI"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EuD-vv-2FC">
-                                <rect key="frame" x="177" y="755" width="60" height="18"/>
+                                <rect key="frame" x="20" y="721" width="374" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="qpG-Wu-grk"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
@@ -80,8 +86,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="EuD-vv-2FC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="IVy-1E-72V"/>
                             <constraint firstItem="PqD-e0-zzC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="KVc-AJ-ajA"/>
                             <constraint firstItem="HXu-jv-l4G" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Kjz-Nq-7e8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="shy-fq-m0n" secondAttribute="trailing" constant="20" id="R82-y2-pgO"/>
                             <constraint firstItem="PqD-e0-zzC" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="Uga-9o-1oT"/>
                             <constraint firstItem="PqD-e0-zzC" firstAttribute="top" secondItem="EuD-vv-2FC" secondAttribute="bottom" constant="40" id="XwB-FL-NzF"/>
                             <constraint firstItem="HXu-jv-l4G" firstAttribute="bottom" secondItem="PqD-e0-zzC" secondAttribute="top" id="aQM-Md-nIy"/>
@@ -90,6 +98,8 @@
                             <constraint firstItem="CHL-Vj-lMa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dk5-4u-mJl"/>
                             <constraint firstItem="CHL-Vj-lMa" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="44" id="elw-Oc-Khx"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HXu-jv-l4G" secondAttribute="trailing" id="gjX-n6-mnw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EuD-vv-2FC" secondAttribute="trailing" constant="20" id="j0V-Qx-QjO"/>
+                            <constraint firstItem="shy-fq-m0n" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="ntA-dx-iUV"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="PqD-e0-zzC" secondAttribute="bottom" id="pvo-Yq-mid"/>
                             <constraint firstItem="CHL-Vj-lMa" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="sbB-fs-FIi"/>
                             <constraint firstItem="shy-fq-m0n" firstAttribute="top" secondItem="CHL-Vj-lMa" secondAttribute="bottom" constant="40" id="voV-G7-apP"/>
