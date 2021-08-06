@@ -71,6 +71,7 @@ class MemeEditorViewController: UIViewController {
         present(activityController, animated: true, completion: nil)
     }
     
+    // Setup default views after tap the cancel buttons
     @IBAction func cancelMeme(_ sender: Any) {
         imagePickerView.image = nil
         btnShare.isEnabled = false
@@ -83,6 +84,7 @@ class MemeEditorViewController: UIViewController {
     
     //MARK: Private methods
     
+    // The action sheet dialog for change the font
     func showFontActionSheet() {
         
         let alertController = UIAlertController(title: "Choose Font Style",
@@ -111,12 +113,14 @@ class MemeEditorViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
+    // Setup the two text fields
     func setUpText() {
     
         setupTextField(textFieldTop, text: "TOP")
         setupTextField(textFieldBottom, text: "BOTTOM")
     }
     
+    // Setup the text field with attributes
     private func setupTextField(_ textField: UITextField, text: String) {
         
         let memeTextAttributes: [NSAttributedString.Key: Any] = [
@@ -137,6 +141,7 @@ class MemeEditorViewController: UIViewController {
         navigationBar.isHidden = hidden
     }
     
+    // Generate the meme image by UI Graphics Image Context
     func generateMemedImage() -> UIImage {
         hideToolbarAndNavigationBar(hidden: true)
         // Render view to an image
@@ -150,6 +155,7 @@ class MemeEditorViewController: UIViewController {
         return memedImage
     }
     
+    // Save the meme struct
     func save(_ memedImage: UIImage) {
             // Create the meme
             let meme = Meme(topText: textFieldTop.text!, bottomText: textFieldBottom.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
@@ -165,17 +171,20 @@ class MemeEditorViewController: UIViewController {
             present(pickerController, animated: true, completion: nil)
         }
     
+    // Add the notification observer and call this when controller appears
     func subscribeToKeyboardNotifications(){
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
+    // Remove the notification observer and call this when controller disappears
     func unsubscribeFromKeyboardNotifications() {
         NotificationCenter.default.removeObserver(self,name: UIResponder.keyboardWillShowNotification,object: nil)
         NotificationCenter.default.removeObserver(self,name: UIResponder.keyboardWillHideNotification,object: nil)
     }
     
+    // Set the view origin y after showing keyboard
     @objc func keyboardWillShow(_ notification:Notification) {
         
         if textFieldBottom.isFirstResponder {
@@ -183,10 +192,12 @@ class MemeEditorViewController: UIViewController {
         }
     }
     
+    // Set the view origin y after hiding keyboard
     @objc func keyboardWillHide(_ notification:Notification) {
           view.frame.origin.y = 0
     }
     
+    // Getting the keyboard hight
     func getKeyboardHeight(_ notification: Notification) -> CGFloat {
         let userInfo = notification.userInfo
         let keyboardSize = userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue // of CGRect
